@@ -4,7 +4,9 @@ This script runs the munevote09 application using a development server.
 
 from os import environ
 from munevote09 import app
-
+import sys
+reload(sys)
+sys.setdefaultencoding("utf-8")
 if __name__ == '__main__':
     HOST = environ.get('SERVER_HOST', 'localhost')
     try:

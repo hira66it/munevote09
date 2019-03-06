@@ -1,0 +1,27 @@
+﻿{% extends "layout.html" %}
+
+{% block content %}
+<h1>survey 03</h1>
+
+
+<h4>07. 자유롭게 의견을 말해주세요.</h4>
+<div class="form-group">
+    <label for="exampleFormControlTextarea1"> 내용을 자유롭게 기제 해주세요</label>
+    <textarea class="form-control" id="Textarea_01" rows="5" placeholder="내용"></textarea>
+</div>
+
+<h4>08. 혹시 다른 사고를 당한 적이 있나요?</h4>
+<div class="form-group">
+    <label for="exampleFormControlTextarea1"> 내용을 자유롭게 기제 해주세요</label>
+    <textarea class="form-control" id="Textarea_02" rows="5" placeholder="내용"></textarea>
+</div>
+
+
+<a class="btn btn-secondary" id="prevButton" href="{{ url_for('survey02') }}"> 이전 </a>
+<a class="btn btn-primary" id="nextButton3" href="{{ url_for('survey99') }}"> 다음 </a>
+
+</br></br></br>
+<div class="progress">
+    <div class="progress-bar" role="progressbar" style="width: 66%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">66%</div>
+</div>
+{% endblock %}

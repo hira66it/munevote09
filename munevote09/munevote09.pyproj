@@ -39,14 +39,22 @@
     <Folder Include="munevote09\static\" />
     <Folder Include="munevote09\static\content\" />
     <Folder Include="munevote09\static\fonts\" />
+    <Folder Include="munevote09\static\img\" />
     <Folder Include="munevote09\static\scripts\" />
     <Folder Include="munevote09\templates\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="munevote09 - Web Deploy.pubxml" />
+    <Content Include="munevote09\static\img\logo.png" />
+    <Content Include="munevote09\static\scripts\main.js" />
     <Content Include="munevote09\static\web.config" />
     <Content Include="munevote09\templates\create.html" />
+    <Content Include="munevote09\templates\result.html" />
     <Content Include="munevote09\templates\results.html" />
+    <Content Include="munevote09\templates\survey01.html" />
+    <Content Include="munevote09\templates\survey02.html" />
+    <Content Include="munevote09\templates\survey03.html" />
+    <Content Include="munevote09\templates\survey99.html" />
     <Content Include="munevote09\templates\vote.html" />
     <Content Include="requirements.txt" />
     <Content Include="munevote09\static\content\bootstrap.css" />

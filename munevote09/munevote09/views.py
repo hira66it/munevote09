@@ -1,3 +1,4 @@
+# -- coding: utf-8 --
 """
 Routes and views for the flask application.
 """
@@ -18,7 +19,7 @@ def home():
     return render_template(
         'index.html',
         title='Home Page',
-        year=datetime.now().year,
+        year=datetime.now().year
     )
 
 @app.route('/contact')
@@ -31,6 +32,41 @@ def contact():
         message='Your contact page.'
     )
 
+@app.route('/result')
+def result():
+    replaced_document ={}
+    client = document_client.DocumentClient(config_cosmos.COSMOSDB_HOST, {'masterKey': config_cosmos.COSMOSDB_KEY})
+
+    # Read databases and take first since id should not be duplicated.
+    db = next((data for data in client.ReadDatabases() if data['id'] == config_cosmos.COSMOSDB_DATABASE))
+
+    # Read collections and take first since id should not be duplicated.
+    coll = next((coll for coll in client.ReadCollections(db['_self']) if coll['id'] == config_cosmos.COSMOSDB_COLLECTION))
+
+    # Read documents and take first since id should not be duplicated.
+    doc = next((doc for doc in client.ReadDocuments(coll['_self']) if doc['id'] == config_cosmos.COSMOSDB_DOCUMENT))
+
+
+    replaced_document = client.ReplaceDocument(doc['_self'], doc)
+
+    # Create a model to pass to results.html
+    class VoteObject:
+        choices = dict()
+        total_votes = 0
+
+    vote_object = VoteObject()
+    vote_object.choices = {
+        "Web Site" : doc['Web Site'],
+        "Cloud Service" : doc['Cloud Service'],
+        "Virtual Machine" : doc['Virtual Machine']
+    }
+    vote_object.total_votes = sum(vote_object.choices.values())
+
+    return render_template(
+        'results.html', 
+        year=datetime.now().year, 
+        vote_object = vote_object)
+
 @app.route('/about')
 def about():
     """Renders the about page."""
@@ -40,6 +76,49 @@ def about():
         year=datetime.now().year,
         message='Your application description page.'
     )
+
+### Survey templete ###
+@app.route('/survey/01')
+def survey01():
+    """Renders the about page."""
+    return render_template(
+        'survey01.html',
+        title='survey',
+        year=datetime.now().year,
+        message='Your application description page.'
+    )
+
+
+@app.route('/survey/02')
+def survey02():
+    """Renders the about page."""
+    return render_template(
+        'survey02.html',
+        title='survey',
+        year=datetime.now().year,
+        message='Your application description page.'
+    )
+
+@app.route('/survey/03')
+def survey03():
+    """Renders the about page."""
+    return render_template(
+        'survey03.html',
+        title='survey',
+        year=datetime.now().year,
+        message='Your application description page.'
+    )
+
+@app.route('/survey/99')
+def survey99():
+    """Renders the about page."""
+    return render_template(
+        'survey99.html',
+        title='survey',
+        year=datetime.now().year,
+        message='Your application description page.'
+    )
+
 
 ### Voteing file added ###
 @app.route('/create')
@@ -116,7 +195,7 @@ def vote():
 
     else :
         return render_template(
-            'vote.html', 
+            'vote.html',
             title = 'Vote',
             year=datetime.now().year,
             form = form)

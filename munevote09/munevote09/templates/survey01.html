@@ -1,0 +1,82 @@
+﻿{% extends "layout.html" %}
+
+{% block content %}
+<h1>survey 01</h1>
+
+</br>
+<h2>01. 설문조사 1</h2>
+<h4> 주사 바늘을 사용하다 다친 적이 있나요?</h4>
+<div class="form-check">
+    <input class="form-check-input" type="radio" name="Radio_button_01" id="Radio_button_01_A" value="option1" checked>
+    <label class="form-check-label" for="Radio_button_01_A">
+        예
+    </label>
+</div>
+
+<div class="form-check">
+    <input class="form-check-input" type="radio" name="Radio_button_01" id="Radio_button_01_B" value="option2">
+    <label class="form-check-label" for="Radio_button_01_B">
+        아니오
+    </label>
+</div>
+
+<hr />
+<h2>02. 설문조사 2</h2>
+<h4> 주사 바늘을 사용하다 다친 적이 있나요?</h4>
+<div class="form-check">
+    <input class="form-check-input" type="radio" name="Radio_button_02" id="Radio_button_02_A" value="option1" checked>
+    <label class="form-check-label" for="Radio_button_02_A">
+        예
+    </label>
+</div>
+<div class="form-check">
+    <input class="form-check-input" type="radio" name="Radio_button_02" id="Radio_button_02_B" value="option2">
+    <label class="form-check-label" for="Radio_button_02_B">
+        아니오
+    </label>
+</div>
+
+<hr />
+<h2>03. 설문조사 3</h2>
+<h4> 주사 바늘을 사용하다 다친 적이 있나요?</h4>
+<div class="form-check">
+    <input class="form-check-input" type="radio" name="Radio_button_03" id="Radio_button_03_A" value="option1" checked>
+    <label class="form-check-label" for="Radio_button_03_A">
+        예
+    </label>
+</div>
+<div class="form-check">
+    <input class="form-check-input" type="radio" name="Radio_button_03" id="Radio_button_03_B" value="option2">
+    <label class="form-check-label" for="Radio_button_03_B">
+        아니오
+    </label>
+</div>
+
+<hr />
+<h2>04. 설문조사 4</h2>
+<h4> 주사 바늘을 사용하다 다친 적이 있나요?</h4>
+<div class="form-check">
+    <input class="form-check-input" type="radio" name="Radio_button_04" id="Radio_button_04_A" value="option1" checked>
+    <label class="form-check-label" for="Radio_button_04_A">
+        예
+    </label>
+</div>
+<div class="form-check">
+    <input class="form-check-input" type="radio" name="Radio_button_04" id="Radio_button_04_B" value="option2">
+    <label class="form-check-label" for="Radio_button_04_B">
+        아니오
+    </label>
+</div>
+
+
+<a class="btn btn-secondary" id="prevButton" href="{{ url_for('survey01') }}" disabled> 이전 </a>
+<a class="btn btn-primary" id="nextButton1" href="{{ url_for('survey02') }}"> 다음 </a>
+
+<button type="button" name="button" id="test">test</button>
+
+</br>
+</br></br>
+<div class="progress">
+    <div class="progress-bar" role="progressbar" style="width: 1%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">1%</div>
+</div>
+{% endblock %}

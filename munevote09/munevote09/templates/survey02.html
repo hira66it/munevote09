@@ -1,0 +1,63 @@
+﻿{% extends "layout.html" %}
+
+{% block content %}
+<h1>survey 02</h1>
+
+</br>
+<h2>설문조사 5</h2>
+<h4> 주사 바늘을 사용하다 다친 적이 있나요?</h4>
+<div class="form-check">
+    <input class="form-check-input" type="radio" name="Radio_button_05" id="Radio_button_05_A" value="option1" checked>
+    <label class="form-check-label" for="Radio_button_05_A">
+        예
+    </label>
+</div>
+
+<div class="form-check">
+    <input class="form-check-input" type="radio" name="Radio_button_05" id="Radio_button_05_B" value="option2">
+    <label class="form-check-label" for="Radio_button_05_B">
+        아니오
+    </label>
+</div>
+
+<hr />
+<h2>설문조사 6</h2>
+<h4> 주사 바늘을 사용하다 다친 적이 있나요?</h4>
+<div class="form-check">
+    <input class="form-check-input" type="radio" name="Radio_button_06" id="Radio_button_06_A" value="option1" checked>
+    <label class="form-check-label" for="Radio_button_06_A">
+        예
+    </label>
+</div>
+<div class="form-check">
+    <input class="form-check-input" type="radio" name="Radio_button_06" id="Radio_button_06_B" value="option2">
+    <label class="form-check-label" for="Radio_button_06_B">
+        아니오
+    </label>
+</div>
+
+
+
+</br>
+
+
+<a class="btn btn-secondary" id="prevButton" href="{{ url_for('survey01') }}"> 이전 </a>
+<a class="btn btn-primary" id="nextButton2" href="{{ url_for('survey03') }}"> 다음 </a>
+
+<hr>
+<div class="progress">
+    <div class="progress-bar" role="progressbar" style="width: 33%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">33%</div>
+</div>
+{% endblock %}
+
+
+
+
+{% block scripts %}
+$(document).ready(function () {
+            var val = location.href.substr(
+                location.href.lastIndexOf('=') + 1
+            );
+            console.log('val : ' + val);
+        });
+{% endblock %}

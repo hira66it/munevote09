@@ -1,7 +1,14 @@
-{% extends "layout.html" %}
+﻿{% extends "layout.html" %}
+
 {% block content %}
-<h2>Python + Azure Cosmos DB Voting Application.</h2>
-<h3>This is a sample Cosmos DB voting application using PyDocumentDB</h3>
-<p><a href="{{ url_for('create') }}" class="btn btn-primary btn-large">Create/Clear the Voting Database &raquo;</a></p>
-<p><a href="{{ url_for('vote') }}" class="btn btn-primary btn-large">Vote &raquo;</a></p>
-{% endblock %}
+
+<h4>총 <span class="badge badge-secondary">38</span> 건의 설문이 집계 되었습니다.</h4>
+
+<h2>간호사 들의 소중한 의견 감사합니다.</h2>
+
+<a href="{{ url_for('vote') }}"><button type="button" class="btn btn-primary btn-sm">설문 조사</button></a>
+
+<a href="{{ url_for('survey01') }}"><button type="button" class="btn btn-primary btn-sm">Go to survey</button></a>
+
+<a href="{{ url_for('result') }}"><button type="button" class="btn btn-secondary btn-sm">그래프 보기</button></a>
+{% endblock%}

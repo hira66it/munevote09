@@ -1,0 +1,18 @@
+﻿{% extends "layout.html" %}
+
+{% block content %}
+<h1>survey 03</h1>
+
+
+
+<h3>모든 설문이 완료 되었습니다. 감사합니다.</h3>
+
+<!--<a class="btn btn-secondary" href="{{ url_for('survey03') }}"> 결과보기 </a>-->
+<a class="btn btn-primary" href="{{ url_for('home') }}"> 처음으로 </a>
+
+
+</br></br></br>
+<div class="progress">
+    <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">100%</div>
+</div>
+{% endblock %}
